@@ -18,8 +18,11 @@ public class Universite implements Serializable{
     @GeneratedValue ( strategy = GenerationType.IDENTITY)
     @Column (name="idUniv")
     private  Long idUniv;
+    private String adresse;
+    private String description;
     private String nomUniv;
     private String region;
+    private  String imgUrl;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Departement> departements;
 }

@@ -9,6 +9,7 @@ import tn.esprit.springproject.repository.EquipeRepository;
 import tn.esprit.springproject.repository.EtudiantRepository;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 @AllArgsConstructor
 @Service
@@ -66,6 +67,9 @@ public class EtudiantServiceImp implements  IEtudiantService{
         Equipe equipe = this.equipeRepository.findById(idEq).orElse(null);
         contrat.setEtudiant(e);
         equipe.getEtudiants().add(e);
+        List<Equipe> equipeList=new ArrayList<>();
+        equipeList.add(equipe);
+        e.setEquipes(equipeList);
         return etudiantRepository.save(e);
 
     }

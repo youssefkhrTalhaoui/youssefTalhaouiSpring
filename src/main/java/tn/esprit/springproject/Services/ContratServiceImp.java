@@ -51,8 +51,10 @@ public class ContratServiceImp implements IContratService {
     }
 
 
-    @Scheduled(cron ="* * 13 * * *")
+   /* @Scheduled(cron ="* * 13 * * *")
     void retrieveAndUpdateStatusContrat(){
         System.out.println("test retrieveAndUpdateStatus");
     }
+
+    */
 }

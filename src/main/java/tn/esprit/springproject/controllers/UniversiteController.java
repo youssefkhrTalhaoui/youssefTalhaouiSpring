@@ -11,6 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@CrossOrigin(origins = "*")
 public class UniversiteController {
     IUniversiteService universiteService;
 
@@ -33,12 +34,12 @@ public class UniversiteController {
     public void deleteUniversite(@PathVariable("idUniversite") Long idUniversite){
         universiteService.deleteUniversite(idUniversite);
     }
-    @PostMapping("/getUniversiteById")
-    public Universite getUniversiteById(Long idUniversite){
+    @GetMapping("/getUniversiteById/{idUni}")
+    public Universite getUniversiteById(@PathVariable("idUni") Long idUniversite){
 
         return universiteService.getUniversiteById(idUniversite);
     }
-    @PutMapping("/asseignUniversiteToDepartement/{idUniversite}/{idDepartement}")
+    @PutMapping ("/asseignUniversiteToDepartement/{idUniversite}/{idDepartement}")
     public  void assignUniversiteToDepartement(@PathVariable("idUniversite") Long idUniversite, @PathVariable("idDepartement") Long idDepartement){
         universiteService.assignUniversiteToDepartement(idUniversite,idDepartement);
     }
@@ -54,7 +55,7 @@ public class UniversiteController {
     public ResponseEntity<List<Universite>> getAllUnivs(
             @RequestParam(defaultValue = "0") Integer pageNo,
             @RequestParam(defaultValue = "10") Integer pageSize,
-            @RequestParam(defaultValue = "idUniv") String sortBy)
+            @RequestParam(defaultValue = "nomUniv") String sortBy)
     {
         List<Universite> list = universiteService.getAllUniv(pageNo, pageSize, sortBy);
 

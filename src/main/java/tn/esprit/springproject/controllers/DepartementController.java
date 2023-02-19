@@ -10,6 +10,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@CrossOrigin(origins = "*")
 public class DepartementController {
 
     IDepartementService departementService;

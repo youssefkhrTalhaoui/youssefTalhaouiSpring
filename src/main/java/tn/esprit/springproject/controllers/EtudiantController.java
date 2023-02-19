@@ -58,6 +58,7 @@ public class EtudiantController {
     @GetMapping("/retrieveEtudiantByEquipeThematique/{thematique}")
     public List <Etudiant> retrieveEtudiantByEquipeThematique (@PathVariable("thematique") String thematique){
        return etudiantService.retrieveEtudiantByEquipeThematique(thematique);
+
     }
     @PutMapping("/updateEtudiantByOption/{op}/{idEtudiant}")
     public void updateEtudiantByOption(@PathVariable("op") Option op, @PathVariable("idEtudiant") Long idEtudiant) {
